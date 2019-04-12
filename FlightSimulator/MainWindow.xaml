@@ -4,9 +4,24 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:FlightSimulator"
+        xmlns:controls="clr-namespace:FlightSimulator.Views"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="MainWindow" Height="900" Width="900">
     <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <controls:FlightBoard x:Name="flightBoard" Grid.Row="0"  Grid.ColumnSpan="2"></controls:FlightBoard>
+        <TabControl Grid.Row="1">
+            <TabItem Header="Manual">
+                <controls:Joystick x:Name="joystick" Grid.Row="1" Grid.Column="0"></controls:Joystick>
+            </TabItem>
+            <TabItem Header="Auto Pilot">
+                <controls:CommandInterpreter x:Name="commandInterpreter" Grid.Row="1" Grid.Column="1"></controls:CommandInterpreter>
+            </TabItem>
+        </TabControl>
+        
         
     </Grid>
 </Window>
