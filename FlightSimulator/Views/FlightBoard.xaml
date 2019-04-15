@@ -27,10 +27,17 @@
             <RowDefinition Height="*"/>
             <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
-        <Button x:Name="btnConnect" Grid.Row="0" Grid.Column="1" HorizontalAlignment="Center" Click="BtnConnect_Click" Padding="5" Height="30" Width="70" Margin="280,6,435,7">Connect</Button>
-        <Button x:Name="btnSettings" Grid.Row="0" Grid.Column="1" HorizontalAlignment="Center" Click="BtnSettings_Click" Padding="5" Height="30" Width="70" Margin="376,6,341,7">Settings</Button>
         <TextBlock Grid.Row="1" Style="{StaticResource LabelStyle}" LayoutTransform="{StaticResource rotate}" VerticalAlignment="Center">Lon</TextBlock>
         <TextBlock Grid.Row="2" Grid.ColumnSpan="2" Style="{StaticResource LabelStyle}" HorizontalAlignment="Center">Lat</TextBlock>
         <d3:ChartPlotter Grid.Row="1" Grid.Column="1" LegendVisible="False" Name="plotter" Margin="5"></d3:ChartPlotter>
-    </Grid>
+            <Grid Grid.Row="0" Grid.Column="1" HorizontalAlignment="Center" Height="30" VerticalAlignment="Top" Width="200" >
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Button x:Name="btnConnect" Grid.Row="0" Grid.Column="0" HorizontalAlignment="Center" Click="BtnConnect_Click" Padding="5" Height="30" Width="70" >Connect</Button>
+            <Button x:Name="btnSettings" Grid.Row="0" Grid.Column="1" HorizontalAlignment="Center" Click="BtnSettings_Click" Padding="5" Height="30" Width="70" >Settings</Button>
+
+        </Grid>
+        </Grid>
 </UserControl>

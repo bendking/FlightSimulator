@@ -8,17 +8,18 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="900" Width="900">
     <Grid>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="*"/>
-            <RowDefinition Height="*"/>
-        </Grid.RowDefinitions>
-        <controls:FlightBoard x:Name="flightBoard" Grid.Row="0"  Grid.ColumnSpan="2"></controls:FlightBoard>
-        <TabControl Grid.Row="1">
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <controls:FlightBoard x:Name="flightBoard" Grid.Column="0"></controls:FlightBoard>
+        <TabControl Grid.Column="1">
             <TabItem Header="Manual">
-                <controls:Joystick x:Name="joystick" Grid.Row="1" Grid.Column="0"></controls:Joystick>
+                <controls:Joystick x:Name="joystick" Grid.Column="1"/>
             </TabItem>
             <TabItem Header="Auto Pilot">
-                <controls:CommandInterpreter x:Name="commandInterpreter" Grid.Row="1" Grid.Column="1"></controls:CommandInterpreter>
+                <controls:CommandInterpreter x:Name="commandInterpreter" Grid.Column="1"/>
             </TabItem>
         </TabControl>
         
