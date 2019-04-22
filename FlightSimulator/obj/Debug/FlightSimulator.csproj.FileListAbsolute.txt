@@ -25,3 +25,5 @@ C:\Users\ofec\Desktop\Flight\FlightSimulator\obj\Debug\FlightSimulator.csproj.Co
 C:\Users\ofec\Desktop\Flight\FlightSimulator\obj\Debug\FlightSimulator.csproj.CopyComplete
 C:\Users\ofec\Desktop\Flight\FlightSimulator\obj\Debug\FlightSimulator.exe
 C:\Users\ofec\Desktop\Flight\FlightSimulator\obj\Debug\FlightSimulator.pdb
+C:\Users\ofec\Desktop\Flight\FlightSimulator\obj\Debug\Views\ManualPilot.g.cs
+C:\Users\ofec\Desktop\Flight\FlightSimulator\obj\Debug\Views\ManualPilot.baml

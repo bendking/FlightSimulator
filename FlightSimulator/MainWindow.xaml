@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:FlightSimulator"
         xmlns:controls="clr-namespace:FlightSimulator.Views"
         mc:Ignorable="d"
-        Title="MainWindow" Height="900" Width="900">
+        Title="MainWindow" Height="650" Width="1000">
     <Grid>
 
         <Grid.ColumnDefinitions>
@@ -16,7 +16,7 @@
         <controls:FlightBoard x:Name="flightBoard" Grid.Column="0"></controls:FlightBoard>
         <TabControl Grid.Column="1">
             <TabItem Header="Manual">
-                <controls:Joystick x:Name="joystick" Grid.Column="1"/>
+                <controls:ManualPilot x:Name="manual" Grid.Column="1"/>
             </TabItem>
             <TabItem Header="Auto Pilot">
                 <controls:CommandInterpreter x:Name="commandInterpreter" Grid.Column="1"/>
