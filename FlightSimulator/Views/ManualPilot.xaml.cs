@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using FlightSimulator.ViewModels;
 
 namespace FlightSimulator.Views
 {
@@ -20,14 +21,22 @@ namespace FlightSimulator.Views
     /// </summary>
     public partial class ManualPilot : UserControl
     {
-        public string VM_Throttle { get; set; }
-        public string VM_Rudder { get; set; }
-        public string VM_Elevator { get; set; }
-        public string VM_Aileron { get; set; }
+        JoyStickViewModel viewModel;
         public ManualPilot()
         {
             InitializeComponent();
-            this.DataContext = this;
+            viewModel = new JoyStickViewModel();
+        }
+
+        private void LeftSlider_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
+        {
+            System.Diagnostics.Debug.WriteLine(e.NewValue);
+            viewModel.Throttle(e.NewValue);
+        }
+
+        private void ButtomSlider_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
+        {
+            viewModel.Rudder(e.NewValue);
         }
     }
 }

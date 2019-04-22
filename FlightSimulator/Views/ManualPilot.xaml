@@ -37,7 +37,7 @@
                         <RotateTransform Angle="90"></RotateTransform>
                     </TextBlock.LayoutTransform>
                 </TextBlock>
-                <Slider x:Name="leftSlider" Margin="0 20 0 10"  Grid.Row="1" TickPlacement="BottomRight" TickFrequency="0.1" Grid.Column="1" Minimum="-1" Maximum="1">
+                <Slider x:Name="leftSlider" Margin="0 20 0 10"  Grid.Row="1" TickPlacement="BottomRight" TickFrequency="0.1" Grid.Column="1" Minimum="-1" Maximum="1" ValueChanged="LeftSlider_ValueChanged">
                     <Slider.LayoutTransform>
                         <RotateTransform Angle="-90"></RotateTransform>
                     </Slider.LayoutTransform>
@@ -54,7 +54,7 @@
                     <RowDefinition Height="Auto"></RowDefinition>
                 </Grid.RowDefinitions>
                 <TextBlock Margin="0 0 0 10" Grid.Row="1" HorizontalAlignment="Center" Text="⟵ rudder ⟶"></TextBlock>
-                <Slider x:Name="buttomSlider" Margin="30 0 30 0"  TickPlacement="BottomRight" TickFrequency="0.1" Minimum="-1" Maximum="1" ></Slider>
+                <Slider x:Name="buttomSlider" Margin="30 0 30 0"  TickPlacement="BottomRight" TickFrequency="0.1" Minimum="-1" Maximum="1" ValueChanged="ButtomSlider_ValueChanged" ></Slider>
                 <TextBlock Grid.Column="2" VerticalAlignment="Top" Text="{Binding ElementName=buttomSlider,Path=Value, StringFormat = N2}"></TextBlock>
             </Grid>
             <Viewbox StretchDirection="Both" Stretch="Uniform">

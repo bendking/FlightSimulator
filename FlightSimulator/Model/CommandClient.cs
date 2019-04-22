@@ -84,16 +84,7 @@ namespace FlightSimulator.Model
             writer = new StreamWriter(client.GetStream());
         }
 
-        public void Aileron(double d)
-        {
-            //double d = i / 124.0;
-            Send("set /controls/flight/aileron " + d);
-        }
-        public void Elevator(double d)
-        {
-            //double d = i / 124.0;
-            Send("set /controls/flight/elevator " + d);
-        }
+      
 
         public void Send(string msg)
         {
