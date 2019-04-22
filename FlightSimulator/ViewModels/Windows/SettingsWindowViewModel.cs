@@ -67,6 +67,7 @@ namespace FlightSimulator.ViewModels.Windows
         {
             get
             {
+                System.Diagnostics.Debug.WriteLine("hello");
                 return _clickCommand ?? (_clickCommand = new CommandHandler(() => OnClick()));
             }
         }

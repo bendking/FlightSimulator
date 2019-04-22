@@ -28,11 +28,23 @@ namespace FlightSimulator.Model
         public void HostAndConnect()
         {
             // Host for FlightGear
-            Host();
+            Thread t1 = new Thread(delegate ()
+            {
+                Host();
+            });
+
             // Sleep for 30 seconds
-            System.Threading.Thread.Sleep(30000);
+            // System.Threading.Thread.Sleep(30000);
+
             // Connect to FlightGear
-            Connect();
+            Thread t2 = new Thread(delegate ()
+            {
+                Connect();
+            });
+
+            //start
+            t1.Start();
+            t2.Start();
         }
         public void Host()
         {
@@ -48,7 +60,7 @@ namespace FlightSimulator.Model
         public void Connect()
         {
             // Create a new client and connect
-            client = new CommandClient(Properties.Settings.Default.FlightServerIP, Properties.Settings.Default.FlightCommandPort);
+            client = CommandClient.GetInstance(Properties.Settings.Default.FlightServerIP, Properties.Settings.Default.FlightCommandPort);
             client.Connect();
         }
 

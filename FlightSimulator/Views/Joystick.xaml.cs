@@ -153,6 +153,8 @@ namespace FlightSimulator.Views
             knobPosition.X = deltaPos.X;
             knobPosition.Y = deltaPos.Y;
 
+           // System.Diagnostics.Debug.WriteLine("Aileron: "+Aileron+", Elevator: " + Elevator);
+
             if (Moved == null ||
                 (!(Math.Abs(_prevAileron - Aileron) > AileronStep) && !(Math.Abs(_prevElevator - Elevator) > ElevatorStep)))
                 return;
@@ -160,7 +162,8 @@ namespace FlightSimulator.Views
             Moved?.Invoke(this, new VirtualJoystickEventArgs { Aileron = Aileron, Elevator = Elevator });
             _prevAileron = Aileron;
             _prevElevator = Elevator;
-
+           
+              
         }
 
         private void Knob_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
