@@ -35,5 +35,10 @@ namespace FlightSimulator.Views
             // Reset value of text box
             commandBox.SetValue(TextBox.TextProperty, "");
         }
+
+        private void CommandBox_TextChanged(object sender, TextChangedEventArgs e)
+        {
+
+        }
     }
 }

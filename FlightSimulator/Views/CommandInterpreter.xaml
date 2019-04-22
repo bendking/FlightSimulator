@@ -6,13 +6,20 @@
              xmlns:local="clr-namespace:FlightSimulator.Views"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
-    <Grid>
+    <Grid Height="450" VerticalAlignment="Top" Margin="0,0,10,0">
         <Grid.RowDefinitions>
             <RowDefinition Height="*"/>
             <RowDefinition Height="auto"/>
         </Grid.RowDefinitions>
-        <TextBox x:Name="commandBox" AcceptsReturn="True" Height="auto" Width="auto" Margin="5"></TextBox>
-        <Button x:Name="OK" Click="OK_Click"  Grid.Row="1" Width="40" Padding="5" Margin="342,5,418,5" >OK</Button>
-        <Button x:Name="Clear" Click="Clear_Click" Grid.Row="1" Width="40" Padding="5" Margin="418,5,342,5">Clear</Button>
+        <Grid Grid.Row="1" HorizontalAlignment="Center" Width="158">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Button x:Name="OK" Click="OK_Click" Width="40" Padding="5" Margin="37,0,2,0" Grid.Column="1"  >OK</Button>
+            <Button x:Name="Clear" Click="Clear_Click" Width="40" Padding="5" VerticalAlignment="Bottom" Margin="4,0,35,0">Clear</Button>
+        </Grid>
+        <TextBox x:Name="commandBox" AcceptsReturn="True" Height="auto" Width="auto" Margin="5" TextChanged="CommandBox_TextChanged"></TextBox>
+
     </Grid>
 </UserControl>
