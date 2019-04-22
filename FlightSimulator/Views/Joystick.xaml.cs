@@ -14,7 +14,7 @@ using System.Windows.Media.Animation;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-
+using FlightSimulator.ViewModels;
 namespace FlightSimulator.Views
 {
     /// <summary>
@@ -118,6 +118,10 @@ namespace FlightSimulator.Views
             Knob.MouseMove += Knob_MouseMove;
 
             centerKnob = Knob.Resources["CenterKnob"] as Storyboard;
+
+            JoyStickViewModel viewModel = new JoyStickViewModel();
+            Moved += viewModel.Moved;
+            Released += viewModel.Relesed;
         }
 
         private void Knob_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
@@ -147,8 +151,8 @@ namespace FlightSimulator.Views
             double distance = Math.Round(Math.Sqrt(deltaPos.X * deltaPos.X + deltaPos.Y * deltaPos.Y));
             if (distance >= canvasWidth / 2 || distance >= canvasHeight / 2)
                 return;
-            Aileron = -deltaPos.Y;
-            Elevator = deltaPos.X;
+            Elevator = -deltaPos.Y;
+            Aileron = deltaPos.X;
 
             knobPosition.X = deltaPos.X;
             knobPosition.Y = deltaPos.Y;
@@ -175,6 +179,7 @@ namespace FlightSimulator.Views
         private void centerKnob_Completed(object sender, EventArgs e)
         {
             Aileron = Elevator = _prevAileron = _prevElevator = 0;
+            
             Released?.Invoke(this);
         }
 
