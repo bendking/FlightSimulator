@@ -60,6 +60,7 @@
     </ApplicationDefinition>
     <Compile Include="ViewModels\BaseNotify.cs" />
     <Compile Include="ViewModels\FlightBoardViewModel.cs" />
+    <Compile Include="ViewModels\InterpreterViewModel.cs" />
     <Compile Include="ViewModels\JoyStickViewModel.cs" />
     <Compile Include="ViewModels\Windows\SettingsWindowViewModel.cs" />
     <Compile Include="Views\CommandInterpreter.xaml.cs">

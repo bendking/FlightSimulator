@@ -12,6 +12,8 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using FlightSimulator.ViewModels;
+using System.Windows.Threading;
 
 namespace FlightSimulator.Views
 {
@@ -20,14 +22,34 @@ namespace FlightSimulator.Views
     /// </summary>
     public partial class CommandInterpreter : UserControl
     {
+        InterpreterViewModel viewModel;
+
         public CommandInterpreter()
         {
             InitializeComponent();
+            viewModel = new InterpreterViewModel(this);
         }
 
         private void OK_Click(object sender, RoutedEventArgs e)
         {
-            // TODO (OFEC): Execute all commands
+            // Execute all commands
+            viewModel.sendCommands(commandBox.Text);
+        }
+
+        public void changeTextBoxColorFromOtherThread(string color)
+        {
+            this.Dispatcher.Invoke(DispatcherPriority.Normal, new Action(delegate ()
+            {
+
+            if (color.CompareTo("red") == 0)
+            {
+                commandBox.Background = Brushes.Red;
+            } else if (color.CompareTo("white") == 0)
+            {
+                commandBox.Background = Brushes.White;
+            }
+
+            }));
         }
 
         private void Clear_Click(object sender, RoutedEventArgs e)
