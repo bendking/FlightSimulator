@@ -31,6 +31,7 @@ namespace FlightSimulator.Model
             Thread t1 = new Thread(delegate ()
             {
                 Host();
+                Connect();
             });
 
             // Sleep for 30 seconds
@@ -44,7 +45,7 @@ namespace FlightSimulator.Model
 
             //start
             t1.Start();
-            t2.Start();
+            //t2.Start();
         }
         public void Host()
         {
