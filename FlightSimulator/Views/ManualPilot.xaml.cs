@@ -30,7 +30,6 @@ namespace FlightSimulator.Views
 
         private void LeftSlider_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
         {
-            System.Diagnostics.Debug.WriteLine(e.NewValue);
             viewModel.Throttle(e.NewValue);
         }
 

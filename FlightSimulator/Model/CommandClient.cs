@@ -97,7 +97,7 @@ namespace FlightSimulator.Model
             // using (StreamWriter writer = new StreamWriter(stream))
             {
                 // Send data to server
-                writer.WriteLine(msg);
+                writer.WriteLine(msg+"\r\n");
                // System.Diagnostics.Debug.WriteLine(msg);
                // System.Diagnostics.Debug.WriteLine("ofec");
             }
