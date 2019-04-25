@@ -109,6 +109,7 @@ namespace FlightSimulator.Views
         private double canvasWidth, canvasHeight;
         private readonly Storyboard centerKnob;
 
+        private JoyStickViewModel viewModel;
         public Joystick()
         {
             InitializeComponent();
@@ -119,7 +120,8 @@ namespace FlightSimulator.Views
 
             centerKnob = Knob.Resources["CenterKnob"] as Storyboard;
 
-            JoyStickViewModel viewModel = new JoyStickViewModel();
+           viewModel = new JoyStickViewModel();
+            this.DataContext = viewModel;
             Moved += viewModel.Moved;
             Released += viewModel.Relesed;
         }

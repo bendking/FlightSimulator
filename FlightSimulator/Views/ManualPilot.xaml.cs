@@ -26,8 +26,10 @@ namespace FlightSimulator.Views
         {
             InitializeComponent();
             viewModel = new JoyStickViewModel();
+            this.DataContext = viewModel;
         }
 
+        /*
         private void LeftSlider_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
         {
             viewModel.Throttle(e.NewValue);
@@ -37,5 +39,6 @@ namespace FlightSimulator.Views
         {
             viewModel.Rudder(e.NewValue);
         }
+        */
     }
 }

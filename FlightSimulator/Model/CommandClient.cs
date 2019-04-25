@@ -88,10 +88,10 @@ namespace FlightSimulator.Model
 
         public void Send(string msg)
         {
-           
+            System.Diagnostics.Debug.WriteLine(msg);
+
             if (!connected) return;
 
-            System.Diagnostics.Debug.WriteLine(msg);
             // using (NetworkStream stream = client.GetStream())
             //NetworkStream stream = client.GetStream();
             // using (StreamWriter writer = new StreamWriter(stream))
