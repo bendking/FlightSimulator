@@ -9,9 +9,22 @@ using System.Windows.Threading;
 using FlightSimulator.Model;
 namespace FlightSimulator.ViewModels
 {
-    class InterpreterViewModel
+    class InterpreterViewModel : BaseNotify
     {
         private CommandInterpreter view;
+        private string color = "White";
+        public string IsSending
+        {
+            get
+            {
+                return color;
+            }
+            set
+            {
+                color = value;
+                NotifyPropertyChanged("IsSending");
+            }
+        }
         public InterpreterViewModel(CommandInterpreter _view)
         {
             view = _view;
@@ -24,7 +37,7 @@ namespace FlightSimulator.ViewModels
             Thread t = new Thread(delegate()
             {
              
-                view.changeTextBoxColorFromOtherThread("red");
+                //view.changeTextBoxColorFromOtherThread("red");
                 foreach(string line in lines)
                 {
 
@@ -33,7 +46,7 @@ namespace FlightSimulator.ViewModels
 
                 }
 
-                view.changeTextBoxColorFromOtherThread("white");
+                //view.changeTextBoxColorFromOtherThread("white");
 
             });
             t.Start();

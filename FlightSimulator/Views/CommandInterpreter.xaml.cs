@@ -28,14 +28,17 @@ namespace FlightSimulator.Views
         {
             InitializeComponent();
             viewModel = new InterpreterViewModel(this);
+            this.DataContext = viewModel;
         }
 
         private void OK_Click(object sender, RoutedEventArgs e)
         {
             // Execute all commands
             viewModel.sendCommands(commandBox.Text);
+            viewModel.IsSending = "White";
         }
 
+        /*
         public void changeTextBoxColorFromOtherThread(string color)
         {
             this.Dispatcher.Invoke(DispatcherPriority.Normal, new Action(delegate ()
@@ -51,16 +54,19 @@ namespace FlightSimulator.Views
 
             }));
         }
+        */
 
         private void Clear_Click(object sender, RoutedEventArgs e)
         {
             // Reset value of text box
             commandBox.SetValue(TextBox.TextProperty, "");
+            viewModel.IsSending = "White";
+
         }
 
         private void CommandBox_TextChanged(object sender, TextChangedEventArgs e)
         {
-
+            viewModel.IsSending = "Red";
         }
     }
 }

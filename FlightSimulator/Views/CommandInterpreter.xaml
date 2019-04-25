@@ -4,8 +4,12 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:FlightSimulator.Views"
+             xmlns:vm="clr-namespace:FlightSimulator.ViewModels"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
+    <UserControl.Resources>
+        <vm:BoolToColorConverter x:Key="converter"/>
+    </UserControl.Resources>
     <Grid Height="450" VerticalAlignment="Top" Margin="0,0,10,0">
         <Grid.RowDefinitions>
             <RowDefinition Height="*"/>
@@ -19,7 +23,7 @@
             <Button x:Name="OK" Click="OK_Click" Width="40" Padding="5" Margin="37,0,2,0" Grid.Column="1"  >OK</Button>
             <Button x:Name="Clear" Click="Clear_Click" Width="40" Padding="5" VerticalAlignment="Bottom" Margin="4,0,35,0">Clear</Button>
         </Grid>
-        <TextBox x:Name="commandBox" AcceptsReturn="True" Height="auto" Width="auto" Margin="5" TextChanged="CommandBox_TextChanged"></TextBox>
+        <TextBox x:Name="commandBox" Background="{Binding IsSending, Converter={StaticResource converter}}" AcceptsReturn="True" Height="auto" Width="auto" Margin="5" TextChanged="CommandBox_TextChanged" ></TextBox>
 
     </Grid>
 </UserControl>
