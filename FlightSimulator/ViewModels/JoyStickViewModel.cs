@@ -8,39 +8,93 @@ using FlightSimulator.Model;
 
 namespace FlightSimulator.ViewModels
 {
-    class JoyStickViewModel
+    class JoyStickViewModel : BaseNotify
     {
-        public void Throttle(double d)
+        private JoystickModel model;
+        public JoyStickViewModel()
         {
-            CommandClient.GetInstance().Send("set /controls/flight/throttle " + d);
+            model = new JoystickModel();
+        }
+
+        private string throttle;
+        private string rudder;
+        private string aileron;
+        private string elevator;
+
+        public string VM_Throttle
+        {
+            get
+            {
+                return throttle;
+            }
+            set
+            {
+                throttle = value;
+                model.M_Throttle = throttle;
+                System.Diagnostics.Debug.WriteLine("worked");
+            }
 
         }
-        public void Rudder(double d)
+        public string VM_Rudder
         {
-            CommandClient.GetInstance().Send("set /controls/flight/rudder " + d);
+            get
+            {
+                return rudder;
+            }
+            set
+            {
+                rudder = value;
+                model.M_Rudder = rudder;
+                System.Diagnostics.Debug.WriteLine("worked");
+            }
 
         }
-        public void Aileron(double d)
+        public string VM_Aileron
         {
-            CommandClient.GetInstance().Send("set /controls/flight/aileron " + d);
+            get
+            {
+                return aileron;
+            }
+            set
+            {
+                aileron = value;
+                model.M_Aileron = aileron;
+                System.Diagnostics.Debug.WriteLine("worked");
+            }
+
         }
-        public void Elevator(double d)
+        public string VM_Elevator
         {
-            CommandClient.GetInstance().Send("set /controls/flight/elevator " + d);
+            get
+            {
+                return elevator;
+            }
+            set
+            {
+                elevator = value;
+                model.M_Elevator = elevator;
+                System.Diagnostics.Debug.WriteLine("worked");
+            }
+
         }
+
 
         public void Moved(object sender, VirtualJoystickEventArgs args)
         {
-            Aileron(args.Aileron / 124.0);
-            Elevator(args.Elevator / 124.0);
+            aileron = "" + args.Aileron / 124.0;
+            model.M_Aileron = aileron;
+            elevator = "" + args.Elevator / 124.0;
+            model.M_Elevator = elevator;
         }
         public void Relesed(object sender)
         {
     
-            for (int i = 0; i < 30; i++)
-            {
-                Aileron(0);
-                Elevator(0);
+           for (int i = 0; i < 30; i++)
+           {
+                aileron = "0";
+                model.M_Aileron = aileron;
+                elevator = "0";
+                model.M_Elevator = elevator;
             }
         }
 

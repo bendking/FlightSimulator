@@ -88,21 +88,20 @@ namespace FlightSimulator.Model
 
         public void Send(string msg)
         {
-            if (!connected) return;
-            // DEBUG
-            System.Diagnostics.Debug.WriteLine("Sending message: " + msg);
-            // Send data to server
-            writer.WriteLine(msg+"\r\n");
+            System.Diagnostics.Debug.WriteLine(msg);
 
-            /* DEPRECATED
-            NetworkStream stream = client.GetStream();
-            using (NetworkStream stream = client.GetStream())
-            using (StreamWriter writer = new StreamWriter(stream))
+            if (!connected) return;
+
+            // using (NetworkStream stream = client.GetStream())
+            //NetworkStream stream = client.GetStream();
+            // using (StreamWriter writer = new StreamWriter(stream))
             {
                 // Send data to server
                 writer.WriteLine(msg+"\r\n");
+               // System.Diagnostics.Debug.WriteLine(msg);
+               // System.Diagnostics.Debug.WriteLine("ofec");
             }
-            */
+            
         }
 
         public void Close()
