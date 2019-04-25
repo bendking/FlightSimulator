@@ -78,7 +78,7 @@ namespace FlightSimulator.ViewModels
 
         }
 
-
+        /*
         public void Moved(object sender, VirtualJoystickEventArgs args)
         {
             aileron = "" + args.Aileron / 124.0;
@@ -97,6 +97,7 @@ namespace FlightSimulator.ViewModels
                 model.M_Elevator = elevator;
             }
         }
+        */
 
     }
 }

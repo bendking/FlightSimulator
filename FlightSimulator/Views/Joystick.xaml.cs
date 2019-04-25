@@ -120,10 +120,12 @@ namespace FlightSimulator.Views
 
             centerKnob = Knob.Resources["CenterKnob"] as Storyboard;
 
+            /*
            viewModel = new JoyStickViewModel();
             this.DataContext = viewModel;
             Moved += viewModel.Moved;
             Released += viewModel.Relesed;
+            */
         }
 
         private void Knob_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)

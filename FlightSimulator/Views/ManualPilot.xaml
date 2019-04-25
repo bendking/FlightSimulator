@@ -58,7 +58,7 @@
                 <TextBlock Grid.Column="2" VerticalAlignment="Top" Text="{Binding ElementName=buttomSlider,Path=Value, StringFormat = N2}"></TextBlock>
             </Grid>
             <Viewbox StretchDirection="Both" Stretch="Uniform">
-                <local:Joystick x:Name="MyJoystick" Margin="10"></local:Joystick>
+                <local:Joystick x:Name="MyJoystick" Margin="10" Aileron="{Binding VM_Aileron, Mode=OneWayToSource,UpdateSourceTrigger=PropertyChanged}" Elevator="{Binding VM_Elevator, Mode=OneWayToSource,UpdateSourceTrigger=PropertyChanged}"></local:Joystick>
             </Viewbox>
         </DockPanel>
     </Grid>
