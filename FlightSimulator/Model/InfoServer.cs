@@ -87,8 +87,10 @@ namespace FlightSimulator.Model
                             // Read line and put into array
                             line = reader.ReadLine();
                             input = line.Split(',');
+
                             // DEBUG
-                            System.Diagnostics.Debug.WriteLine(line);
+                            // System.Diagnostics.Debug.WriteLine(line);
+
                             // Input values into dictionary
                             for (int i = 0; i < input.Length; ++i)
                             {

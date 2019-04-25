@@ -28,24 +28,19 @@ namespace FlightSimulator.Model
         public void HostAndConnect()
         {
             // Host for FlightGear
-            Thread t1 = new Thread(delegate ()
+            Thread thread = new Thread(delegate ()
             {
+                // Host for FlightGear
                 Host();
+                // Connect to FlightGear
                 Connect();
             });
 
             // Sleep for 30 seconds
             // System.Threading.Thread.Sleep(30000);
 
-            // Connect to FlightGear
-            Thread t2 = new Thread(delegate ()
-            {
-                Connect();
-            });
-
-            //start
-            t1.Start();
-            //t2.Start();
+            // Host & Connect
+            thread.Start();
         }
         public void Host()
         {
@@ -79,14 +74,15 @@ namespace FlightSimulator.Model
                 double lon, lat;
                 while (!stop)
                 {
-                    System.Diagnostics.Debug.WriteLine("Loop");
                     // Update latitude
                     if (info.ContainsKey("/position/latitude-deg"))
                     {
                         lat = info["/position/latitude-deg"];
+                        // DEBUG
                         System.Diagnostics.Debug.WriteLine("Lat received: " + lat);
                         if (Lat != lat)
                         {
+                            // DEBUG
                             System.Diagnostics.Debug.WriteLine("Lat was: " + Lat + ", Lat is: " + lat);
                             Lat = lat;
                             NotifyPropertyChanged("Lat");
@@ -97,9 +93,11 @@ namespace FlightSimulator.Model
                     if (info.ContainsKey("/position/longitude-deg"))
                     {
                         lon = info["/position/longitude-deg"];
+                        // DEBUG
                         System.Diagnostics.Debug.WriteLine("Lon received: " + lon);
                         if (Lon != lon)
                         {
+                            // DEBUG
                             System.Diagnostics.Debug.WriteLine("Lon was: " + Lon + ", Lon is: " + lon);
                             Lon = lon;
                             NotifyPropertyChanged("Lon");
