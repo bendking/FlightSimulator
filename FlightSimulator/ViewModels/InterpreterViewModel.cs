@@ -40,8 +40,13 @@ namespace FlightSimulator.ViewModels
                 //view.changeTextBoxColorFromOtherThread("red");
                 foreach(string line in lines)
                 {
+                    if (line.Equals(""))
+                        continue;
 
-                    CommandClient.GetInstance().Send(line);
+                    for (int i = 0; i < 1; i++)
+                    {
+                        CommandClient.GetInstance().Send(line);
+                    }
                     System.Threading.Thread.Sleep(2000);
 
                 }
