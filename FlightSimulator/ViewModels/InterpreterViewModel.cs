@@ -43,10 +43,10 @@ namespace FlightSimulator.ViewModels
                     if (line.Equals(""))
                         continue;
 
-                    for (int i = 0; i < 1; i++)
-                    {
+                   // for (int i = 0; i < 30; i++)
+                    //{
                         CommandClient.GetInstance().Send(line);
-                    }
+                    //}
                     System.Threading.Thread.Sleep(2000);
 
                 }

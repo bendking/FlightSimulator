@@ -38,23 +38,7 @@ namespace FlightSimulator.Views
             viewModel.IsSending = "White";
         }
 
-        /*
-        public void changeTextBoxColorFromOtherThread(string color)
-        {
-            this.Dispatcher.Invoke(DispatcherPriority.Normal, new Action(delegate ()
-            {
-
-            if (color.CompareTo("red") == 0)
-            {
-                commandBox.Background = Brushes.Red;
-            } else if (color.CompareTo("white") == 0)
-            {
-                commandBox.Background = Brushes.White;
-            }
-
-            }));
-        }
-        */
+    
 
         private void Clear_Click(object sender, RoutedEventArgs e)
         {

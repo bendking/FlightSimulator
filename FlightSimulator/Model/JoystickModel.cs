@@ -67,7 +67,7 @@ namespace FlightSimulator.Model
 
         public void Throttle()
         {
-            CommandClient.GetInstance().Send("set /controls/flight/throttle " + throttle);
+            CommandClient.GetInstance().Send("set /controls/engines/current-engine/throttle " + throttle);
 
         }
         public void Rudder()
