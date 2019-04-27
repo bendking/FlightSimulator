@@ -77,11 +77,11 @@ namespace FlightSimulator.Model
         }
         public void Aileron()
         {
-            CommandClient.GetInstance().Send("set /controls/flight/aileron " + aileron);
+            CommandClient.GetInstance().Send("set /controls/flight/aileron " + Double.Parse(aileron)/124.0);
         }
         public void Elevator()
         {
-            CommandClient.GetInstance().Send("set /controls/flight/elevator " + elevator);
+            CommandClient.GetInstance().Send("set /controls/flight/elevator " + Double.Parse(elevator)/124.0);
         }
     }
 }
