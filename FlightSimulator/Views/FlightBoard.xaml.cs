@@ -35,11 +35,11 @@ namespace FlightSimulator.Views
 
         private void VM_PropertyChanged(object sender, PropertyChangedEventArgs e)
         {
-            if(e.PropertyName.Equals("Lat") || e.PropertyName.Equals("Lon"))
+            // OLD - if(e.PropertyName.Equals("Lat") || e.PropertyName.Equals("Lon"))
+            if(e.PropertyName.Equals("Lon"))
             {
                 Point p = new Point(viewModel.Lat, viewModel.Lon);
                 planeLocations.AppendAsync(Dispatcher, p);
-                // TODO (Ben): Update graph
             }
         }
 

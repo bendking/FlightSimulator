@@ -79,11 +79,11 @@ namespace FlightSimulator.Model
                     {
                         lat = info["/position/latitude-deg"];
                         // DEBUG
-                        System.Diagnostics.Debug.WriteLine("Lat received: " + lat);
-                        if (Lat != lat)
+                        // System.Diagnostics.Debug.WriteLine("Lat received: " + lat);
+                        if (Lat != lat && lat != 0)
                         {
                             // DEBUG
-                            System.Diagnostics.Debug.WriteLine("Lat was: " + Lat + ", Lat is: " + lat);
+                            // System.Diagnostics.Debug.WriteLine("Lat was: " + Lat + ", Lat is: " + lat);
                             Lat = lat;
                             NotifyPropertyChanged("Lat");
                         }
@@ -94,8 +94,8 @@ namespace FlightSimulator.Model
                     {
                         lon = info["/position/longitude-deg"];
                         // DEBUG
-                        System.Diagnostics.Debug.WriteLine("Lon received: " + lon);
-                        if (Lon != lon)
+                        // System.Diagnostics.Debug.WriteLine("Lon received: " + lon);
+                        if (Lon != lon && lon != 0)
                         {
                             // DEBUG
                             System.Diagnostics.Debug.WriteLine("Lon was: " + Lon + ", Lon is: " + lon);

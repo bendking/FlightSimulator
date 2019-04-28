@@ -31,7 +31,7 @@ namespace FlightSimulator.ViewModels
             {
                 throttle = value;
                 model.M_Throttle = throttle;
-                System.Diagnostics.Debug.WriteLine("worked");
+                // System.Diagnostics.Debug.WriteLine("worked");
             }
 
         }
@@ -45,7 +45,7 @@ namespace FlightSimulator.ViewModels
             {
                 rudder = value;
                 model.M_Rudder = rudder;
-                System.Diagnostics.Debug.WriteLine("worked");
+                // System.Diagnostics.Debug.WriteLine("worked");
             }
 
         }
@@ -59,7 +59,7 @@ namespace FlightSimulator.ViewModels
             {
                 aileron = value;
                 model.M_Aileron = aileron;
-                System.Diagnostics.Debug.WriteLine("worked");
+                // System.Diagnostics.Debug.WriteLine("worked");
             }
 
         }
@@ -73,12 +73,12 @@ namespace FlightSimulator.ViewModels
             {
                 elevator = value;
                 model.M_Elevator = elevator;
-                System.Diagnostics.Debug.WriteLine("worked");
+                // System.Diagnostics.Debug.WriteLine("worked");
             }
 
         }
 
-        /*
+        /* DEPRECATED
         public void Moved(object sender, VirtualJoystickEventArgs args)
         {
             aileron = "" + args.Aileron / 124.0;
