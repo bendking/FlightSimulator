@@ -20,10 +20,10 @@
                 <ColumnDefinition Width="*"/>
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
-            <Button x:Name="OK" Click="OK_Click" Width="40" Padding="5" Margin="37,0,2,0" Grid.Column="1"  >OK</Button>
-            <Button x:Name="Clear" Click="Clear_Click" Width="40" Padding="5" VerticalAlignment="Bottom" Margin="4,0,35,0">Clear</Button>
+            <Button x:Name="OK" Width="40" Padding="5" Margin="37,0,2,0" Grid.Column="1"  Command="{Binding OkCommand}" >OK</Button>
+            <Button x:Name="Clear" Width="40" Padding="5" VerticalAlignment="Bottom" Margin="4,0,35,0" Command="{Binding ClearCommand}">Clear</Button>
         </Grid>
-        <TextBox x:Name="commandBox" Background="{Binding IsSending, Converter={StaticResource converter}}" AcceptsReturn="True" Height="auto" Width="auto" Margin="5" TextChanged="CommandBox_TextChanged" ></TextBox>
+        <TextBox x:Name="commandBox" Background="{Binding IsSending, Converter={StaticResource converter}}" AcceptsReturn="True" Height="auto" Width="auto" Margin="5" Text="{Binding Text, UpdateSourceTrigger=PropertyChanged}" ></TextBox>
 
     </Grid>
 </UserControl>

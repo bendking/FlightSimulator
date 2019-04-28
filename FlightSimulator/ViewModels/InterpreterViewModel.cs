@@ -7,6 +7,8 @@ using System.Threading;
 using FlightSimulator.Views;
 using System.Windows.Threading;
 using FlightSimulator.Model;
+using System.Windows.Input;
+
 namespace FlightSimulator.ViewModels
 {
     class InterpreterViewModel : BaseNotify
@@ -25,6 +27,54 @@ namespace FlightSimulator.ViewModels
                 NotifyPropertyChanged("IsSending");
             }
         }
+
+        private string text;
+        public string Text
+        {
+            set
+            {
+                text = value;
+                IsSending = "Red";
+                NotifyPropertyChanged("Text");
+            }
+            get
+            {
+                return text;
+            }
+        }
+
+        private ICommand _okCommand;
+        public ICommand OkCommand
+        {
+            get
+            {
+                return _okCommand ?? (_okCommand = new CommandHandler(() => OnOk()));
+            }
+        }
+
+        public void OnOk()
+        {
+            sendCommands(Text);
+            IsSending = "White";
+        }
+
+
+        private ICommand _clearCommand;
+        public ICommand ClearCommand
+        {
+            get
+            {
+                return _clearCommand ?? (_clearCommand = new CommandHandler(() => OnClear()));
+            }
+        }
+
+        public void OnClear()
+        {
+            Text = "";
+            IsSending = "White";
+        }
+
+
         public InterpreterViewModel(CommandInterpreter _view)
         {
             view = _view;
