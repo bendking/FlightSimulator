@@ -35,8 +35,8 @@
                 <ColumnDefinition Width="*"/>
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
-            <Button x:Name="btnConnect" Grid.Row="0" Grid.Column="0" HorizontalAlignment="Center" Click="BtnConnect_Click" Padding="5" Height="30" Width="70" >Connect</Button>
-            <Button x:Name="btnSettings" Grid.Row="0" Grid.Column="1" HorizontalAlignment="Center" Click="BtnSettings_Click" Padding="5" Height="30" Width="70" >Settings</Button>
+            <Button x:Name="btnConnect" Grid.Row="0" Grid.Column="0" HorizontalAlignment="Center" Command="{Binding ConnectCommand }" Padding="5" Height="30" Width="70" >Connect</Button>
+            <Button x:Name="btnSettings" Grid.Row="0" Grid.Column="1" HorizontalAlignment="Center"  Command="{Binding OpenSettings }" Padding="5" Height="30" Width="70" >Settings</Button>
 
         </Grid>
         </Grid>

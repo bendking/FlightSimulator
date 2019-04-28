@@ -13,6 +13,7 @@ namespace FlightSimulator.Views
         private FlightBoardViewModel viewModel;
         ObservableDataSource<Point> planeLocations = null;
 
+
         public FlightBoard()
         {
             viewModel = new FlightBoardViewModel(new FlightBoardModel());
@@ -21,6 +22,7 @@ namespace FlightSimulator.Views
             { VM_PropertyChanged(sender, e); };
             // Start things up
             InitializeComponent();
+            this.DataContext = viewModel;
         }
 
         private void UserControl_Loaded(object sender, RoutedEventArgs e)
@@ -43,17 +45,9 @@ namespace FlightSimulator.Views
             }
         }
 
-        private void BtnSettings_Click(object sender, RoutedEventArgs e)
-        {
-            SettingsWindow settings = new SettingsWindow();
-            settings.Show();
-        }
 
-        private void BtnConnect_Click(object sender, RoutedEventArgs e)
-        {
-            // Start up server and client
-            viewModel.HostAndConnect();
-        }
+
+      
     }
 
 }

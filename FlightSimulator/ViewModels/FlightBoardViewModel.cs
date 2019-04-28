@@ -7,7 +7,7 @@ using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
+using System.Windows.Input;
 namespace FlightSimulator.ViewModels
 {
     public class FlightBoardViewModel : BaseNotify
@@ -23,7 +23,35 @@ namespace FlightSimulator.ViewModels
             model.PropertyChanged += delegate(object sender, PropertyChangedEventArgs e)
             { NotifyPropertyChanged(e.PropertyName); };
         }
-     
+
+        private ICommand _openSettings;
+        public ICommand OpenSettings
+        {
+            get
+            {
+                return _openSettings ?? (_openSettings = new CommandHandler(() => OnClick()));
+            }
+        }
+        private void OnClick()
+        {
+            SettingsWindow settings = new SettingsWindow();
+            settings.Show();
+        }
+
+        private ICommand _connect;
+        public ICommand ConnectCommand
+        {
+            get
+            {
+                return _connect ?? (_connect = new CommandHandler(() => OnClick2()));
+            }
+        }
+        private void OnClick2()
+        {
+            HostAndConnect();
+
+        }
+
         public double Lat
         {
             get { return model.Lat; }
@@ -53,5 +81,8 @@ namespace FlightSimulator.ViewModels
         {
             model.ParseValues();
         }
+
+
+
     }
 }
